@@ -1,0 +1,43 @@
+[project]
+name = "coldsnap"
+version = "0.1.0"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "eccodes==2.50.1",
+    "eccodeslib==2.50.0.34",
+    "fastexcel==0.21.0",
+    "geopandas==1.2.0",
+    "httpx[http2]==0.28.1",
+    "lightgbm==4.7.0",
+    "matplotlib==3.11.2",
+    "numpy==2.5.5",
+    "polars==2.1.0",
+    "pyarrow==26.0.1",
+    "pyogrio==0.13.0",
+    "scikit-learn==1.9.1",
+    "scipy==1.18.1",
+    "shapely==2.2.0",
+]
+
+[project.scripts]
+coldsnap = "coldsnap.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+    "pytest==9.2.0",
+    "ruff==0.17.5",
+]
